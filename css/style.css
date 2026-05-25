@@ -31,3 +31,56 @@ body { font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialia
   .map-wrapper { aspect-ratio: 4 / 3; }
 }
 .map-wrapper iframe { width: 100%; height: 100%; display: block; }
+
+/* ===== タブレット（1023px以下） ===== */
+/* Tailwind utility class（md:接頭辞）の上書きには !important が必須
+   （Tailwind CDNが動的注入するため、style.cssより後にcascadeされる） */
+@media (max-width: 1023px) {
+  /* 閉じ状態のドロワーがtranslateX(100%)で画面外配置→横スクロール発生を防ぐ */
+  html, body { overflow-x: hidden; }
+  /* コンテナ左右padding 24px に統一 */
+  .max-w-\[1200px\].mx-auto {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  /* 3つの強みカード: 縦1列 */
+  .md\:grid-cols-3 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  /* おたより: 2列（gap-5でNewsletter識別、Goalsは触らない） */
+  .md\:grid-cols-4.gap-5 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+  /* お知らせ+アクセス、ぽかぽかCTA: 縦積み */
+  .md\:grid-cols-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* ===== スマホ（767px以下） ===== */
+@media (max-width: 767px) {
+  /* ヒーロー: 高さ500px（inline styleをimportantで上書き） */
+  section.bg-\[\#1a1410\] {
+    height: 500px !important;
+  }
+  /* ヒーロー: キャッチコピー font-size 32px */
+  section.bg-\[\#1a1410\] h1.font-serif {
+    font-size: 32px !important;
+  }
+  /* 4つの目標: 1,3番目の右側に縦点線セパレーター（gap-y-10でGoals識別） */
+  .grid-cols-2.md\:grid-cols-4.gap-y-10 > div:nth-child(odd):not(:last-child) {
+    border-right: 1px dashed var(--line);
+  }
+  /* おたより: gap 12px */
+  section .grid.gap-5 {
+    gap: 12px !important;
+  }
+  /* ぽかぽかCTA: パネル内余白 24px（電話番号28pxは既存text-[28px]で適用済み） */
+  .bg-pokapoka .p-8 {
+    padding: 24px !important;
+  }
+  /* フッター: 縦積み・各要素間 16px（flex-colは既存、gapのみ調整） */
+  footer .flex.flex-col {
+    gap: 16px !important;
+  }
+}
