@@ -3,19 +3,19 @@ const { useState, useEffect, useRef, useMemo } = React;
 /* ───────── inline SVG marks ───────── */
 
 const Logo = ({ size = 44 }) => (
-  <img src="assets/svg/logo-mark.png" alt="" aria-hidden="true"
+  <img src="assets/svg/logo-mark.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
        style={{width: size, height: 'auto', objectFit: 'contain', display: 'block'}}/>
 );
 
 const LeafSeparator = ({ w = 200 }) => (
-  <img src="assets/svg/separator.png" alt="" aria-hidden="true"
+  <img src="assets/svg/separator.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
        style={{width: w, height: 'auto', display: 'block'}} />
 );
 
-const IconSprout    = ({ s = 56 }) => <img src="assets/svg/icon-sprout.png"    alt="" aria-hidden="true" style={{width: s, height: s, objectFit: 'contain'}}/>;
-const IconClipboard = ({ s = 56 }) => <img src="assets/svg/icon-clipboard.png" alt="" aria-hidden="true" style={{width: s, height: s, objectFit: 'contain'}}/>;
-const IconHeart     = ({ s = 56 }) => <img src="assets/svg/icon-heart.png"     alt="" aria-hidden="true" style={{width: s, height: s, objectFit: 'contain'}}/>;
-const IconFamily    = ({ s = 56 }) => <img src="assets/svg/icon-family.png"    alt="" aria-hidden="true" style={{width: s, height: s, objectFit: 'contain'}}/>;
+const IconSprout    = ({ s = 56 }) => <img src="assets/svg/icon-sprout.png"    alt="" aria-hidden="true" loading="lazy" decoding="async" style={{width: s, height: s, objectFit: 'contain'}}/>;
+const IconClipboard = ({ s = 56 }) => <img src="assets/svg/icon-clipboard.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style={{width: s, height: s, objectFit: 'contain'}}/>;
+const IconHeart     = ({ s = 56 }) => <img src="assets/svg/icon-heart.png"     alt="" aria-hidden="true" loading="lazy" decoding="async" style={{width: s, height: s, objectFit: 'contain'}}/>;
+const IconFamily    = ({ s = 56 }) => <img src="assets/svg/icon-family.png"    alt="" aria-hidden="true" loading="lazy" decoding="async" style={{width: s, height: s, objectFit: 'contain'}}/>;
 
 /* Lucide-style icons */
 const Chev = ({ d, s = 20 }) => (
@@ -157,7 +157,7 @@ function Hero({ headline }) {
   return (
     <section className="relative w-full overflow-hidden bg-[#1a1410]" style={{height: 'clamp(440px, 60vw, 600px)'}}>
       <div className="absolute inset-0">
-        <img src={HERO_IMG.src} alt={HERO_IMG.alt} className="w-full h-full object-cover" loading="eager"/>
+        <img src={HERO_IMG.src} alt={HERO_IMG.alt} className="w-full h-full object-cover" loading="eager" decoding="sync"/>
       </div>
       {/* warmth gradient for text readability */}
       <div className="absolute inset-0 pointer-events-none" style={{background: 'linear-gradient(to right, rgba(20,15,10,0.55) 0%, rgba(20,15,10,0.25) 35%, rgba(0,0,0,0) 60%)'}}/>
@@ -224,7 +224,7 @@ const StrengthCards = () => (
         {STRENGTHS.map((c, i) => (
           <article key={i} className="card-lift bg-card rounded-xl overflow-hidden shadow-soft">
             <div className="aspect-[4/3] overflow-hidden bg-line">
-              <img src={c.img} alt="" loading="lazy" className="w-full h-full object-cover" />
+              <img src={c.img} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 md:p-7">
               <h3 className="font-serif text-[19px] md:text-[20px] font-medium text-center text-ink">{c.title}</h3>
@@ -299,7 +299,7 @@ const NewsletterCard = ({ n }) => (
       </div>
       <div className="px-3 pb-3">
         <div className="aspect-[16/10] rounded-sm overflow-hidden bg-line">
-          <img src={n.img} alt="" loading="lazy" className="w-full h-full object-cover"/>
+          <img src={n.img} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover"/>
         </div>
         <div className="mt-2 space-y-1">
           <div className="h-1 bg-line rounded-full w-full"/>
@@ -333,7 +333,7 @@ const Newsletter = () => (
 
 /* ───────── Pokapoka CTA ───────── */
 const FloralDecor = () => (
-  <img src="assets/svg/floral.png" alt="" aria-hidden="true"
+  <img src="assets/svg/floral.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
        style={{width: 110, height: 'auto', objectFit: 'contain', opacity: 0.85}}/>
 );
 
@@ -342,7 +342,7 @@ const PokapokaCTA = ({ ctaStyle, showFloral }) => (
     <div className="max-w-[1200px] mx-auto px-5 md:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden shadow-soft bg-pokapoka">
         <div className="aspect-[4/3] md:aspect-auto md:min-h-[280px]">
-          <img src="assets/photos/pokapoka.png" alt="ふれあいルーム ぽかぽかの様子" className="w-full h-full object-cover" loading="lazy"/>
+          <img src="assets/photos/pokapoka.png" alt="ふれあいルーム ぽかぽかの様子" className="w-full h-full object-cover" loading="lazy" decoding="async"/>
         </div>
         <div className="relative p-8 md:p-10 lg:p-12 flex flex-col justify-center">
           {showFloral && <div className="absolute right-5 bottom-5 hidden md:block"><FloralDecor/></div>}
@@ -414,7 +414,7 @@ const NewsAccess = () => (
         <div className="flex items-end justify-between">
           <h2 className="font-serif font-medium text-ink text-[20px] md:text-[22px] flex items-center gap-3">
             <span>お知らせ</span>
-            <img src="assets/svg/separator-arrow.png" alt="" aria-hidden="true"
+            <img src="assets/svg/separator-arrow.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
                  style={{height: 22, width: 'auto', objectFit: 'contain', opacity: 0.9}}/>
           </h2>
           <a href="#" className="text-muted hover:text-brand-primary text-[12.5px] inline-flex items-center gap-1 transition-colors">
@@ -501,46 +501,9 @@ function applyPalette(name) {
   r.setProperty('--bg', p.bg);
 }
 
-function MyTweaks({ tweaks, setTweak }) {
-  return (
-    <TweaksPanel title="Tweaks">
-      <TweakSection title="カラーパレット">
-        <TweakColor
-          label="園のメインカラー"
-          value={tweaks.palette}
-          onChange={v => setTweak('palette', v)}
-          options={[
-            ['#7BA05B', '#D9A89A', '#F9E7E0'],
-            ['#5C7F4B', '#C7906A', '#F5E2D4'],
-            ['#6E96B3', '#E5A6A1', '#FAE6E3'],
-            ['#C68A4E', '#9DB582', '#F7E2CF'],
-          ]}
-        />
-        <p className="text-[11px] text-neutral-500 mt-2">セージ / フォレスト / スカイ / アプリコット</p>
-      </TweakSection>
-      <TweakSection title="ヒーロー">
-        <TweakText label="メインコピー" value={tweaks.heroHeadline} onChange={v => setTweak('heroHeadline', v)} placeholder="例：自分でできた、を、重ねていく。"/>
-      </TweakSection>
-      <TweakSection title="ぽかぽかCTA">
-        <TweakRadio
-          label="ボタン形状"
-          value={tweaks.ctaStyle}
-          onChange={v => setTweak('ctaStyle', v)}
-          options={[
-            { value: 'pill',   label: 'ピル型' },
-            { value: 'square', label: '角丸' },
-          ]}
-        />
-        <TweakToggle label="花柄装飾を表示" value={tweaks.showFloral} onChange={v => setTweak('showFloral', v)}/>
-      </TweakSection>
-    </TweaksPanel>
-  );
-}
-
 /* ───────── App ───────── */
 function App() {
-  const defaults = window.__TWEAK_DEFAULTS__;
-  const [tweaks, setTweak] = useTweaks(defaults);
+  const tweaks = window.__TWEAK_DEFAULTS__ || {};
 
   // Map first colour of selected palette to a named theme.
   useEffect(() => {
@@ -563,7 +526,6 @@ function App() {
         <NewsAccess/>
       </main>
       <Footer/>
-      <MyTweaks tweaks={tweaks} setTweak={setTweak}/>
     </div>
   );
 }
