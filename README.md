@@ -3,7 +3,7 @@
 札幌市清田区里塚緑ヶ丘の認定こども園を想定した、ホームページリニューアル提案用デモサイトです。
 
 ## デモURL
-（Stage 5で記入予定）
+[https://kodomoen-renewal-demo.vercel.app](https://kodomoen-renewal-demo.vercel.app)
 
 ## 技術構成
 - React 18 + JSX（CDN経由 Babel）
